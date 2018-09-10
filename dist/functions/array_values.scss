@@ -1,0 +1,59 @@
+@import 'array';
+
+/**
+ * Set up function for array_values().
+ * 
+ * @param Map or List $array
+ * @return array_values_handle
+ */
+@function array_values(
+    $array
+) 
+{
+
+    $arg_array_type: type-of($array);
+    $valid_array_type: ($arg_array_type == map or $arg_array_type == list);
+
+    @if(
+        $valid_array_type
+    )
+    {
+
+        @return array_values_handle(
+            array($array)
+        );
+
+    }
+    @else
+    {
+
+        $errors: '';
+
+        $errors: $errors + if(
+            $valid_array_type == false, 
+            "\a\aTypeError array_values(): \a\a parameter: 1 \a expected: map or list \a given: " + $arg_array_type + "\a\a",
+            ""
+        );
+        
+        @error $errors;
+
+    }
+
+    @return false;
+    
+}
+
+/**
+ * Returns all the values from given array.
+ * 
+ * @param Array $array
+ * @return Array - An array of all values in a given array indexed numerically.
+ */
+ @function array_values_handle(
+    $array
+)
+{
+
+    @return array(map-values($array));
+
+}

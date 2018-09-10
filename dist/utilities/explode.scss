@@ -1,0 +1,42 @@
+@import '../functions/array';
+
+/**
+ * Get an item inside an array.
+ * 
+ * @param String $delimiter
+ * @param String $string
+ * @return Array - An array of the given string split by delimiter.
+ */
+@function explode($delimiter, $string)
+{
+
+    $list: ();
+    $max: str-length($string);
+ 
+    @for $i from 1 through $max 
+    {
+        
+        $str: str-index($string, $delimiter);
+ 
+        @if str-length($string) >= 1 and $str == null 
+        {
+
+            $list: append($list, $string);
+            $string: '';
+
+        }
+
+        @if type-of($str) == number 
+        {
+
+            $each: str-slice($string, 0, ($str - 1));
+            $list: append($list, $each);
+            $string: str-slice($string, ($str + 1), $max);
+
+        }
+
+    }
+ 
+    @return array($list);
+
+}

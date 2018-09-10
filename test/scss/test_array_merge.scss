@@ -1,0 +1,235 @@
+@import 'dist/functions/array_merge';
+
+/**
+ * Test array_merge()
+ */
+@include test-module('array_merge function') 
+{
+
+    // Test Array
+    $test_array: ( 
+        0: "shayne",
+        1: "peyton",
+        2: "rose"
+    );
+
+    // Test Array
+    $test_array2: (
+        2: "john",
+        3: "bill"
+    );
+
+    // Test Array
+    $test_array3: (
+        3: "Tobias",
+        4: "Julius",
+        5: "Angelo",
+        6: "Kasey"
+    );
+
+    // Test Array
+    $test_array4: (
+        4: "Carolin",
+        7: "Sharla"
+    );
+
+    // Test array_merge() returns the expected result
+    @include test('test_array_merge_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array, 
+                $test_array2
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: "shayne", 1: "peyton", 2: "john", 3: "bill")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array,
+                $test_array3
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: "shayne", 1: "peyton", 2: "rose", 3: "Tobias", 4: "Julius", 5: "Angelo", 6: "Kasey")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array,
+                $test_array4
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: "shayne", 1: "peyton", 2: "rose", 4: "Carolin", 7: "Sharla")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array2, 
+                $test_array
+            )), 
+
+            // Expected Result
+            inspect(
+                (2: "rose", 3: "bill", 0: "shayne", 1: "peyton")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array2, 
+                $test_array3
+            )), 
+
+            // Expected Result
+            inspect(
+                (2: "john", 3: "Tobias", 4: "Julius", 5: "Angelo", 6: "Kasey")
+            )
+
+        );
+
+        
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array2, 
+                $test_array4
+            )), 
+
+            // Expected Result
+            inspect(
+                (2: "john", 3: "bill", 4: "Carolin", 7: "Sharla")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array3, 
+                $test_array
+            )), 
+
+            // Expected Result
+            inspect(
+                (3: "Tobias", 4: "Julius", 5: "Angelo", 6: "Kasey", 0: "shayne", 1: "peyton", 2: "rose")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array3, 
+                $test_array2
+            )), 
+
+            // Expected Result
+            inspect(
+                (3: "bill", 4: "Julius", 5: "Angelo", 6: "Kasey", 2: "john")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array3, 
+                $test_array4
+            )), 
+
+            // Expected Result
+            inspect(
+                (3: "Tobias", 4: "Carolin", 5: "Angelo", 6: "Kasey", 7: "Sharla")
+            )
+
+        );
+        
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array4, 
+                $test_array
+            )), 
+
+            // Expected Result
+            inspect(
+                (4: "Carolin", 7: "Sharla", 0: "shayne", 1: "peyton", 2: "rose")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array4, 
+                $test_array2
+            )), 
+
+            // Expected Result
+            inspect(
+                (4: "Carolin", 7: "Sharla", 2: "john", 3: "bill")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array4, 
+                $test_array3
+            )), 
+
+            // Expected Result
+            inspect(
+                (4: "Julius", 7: "Sharla", 3: "Tobias", 5: "Angelo", 6: "Kasey")
+            )
+
+        );
+
+    }
+
+}

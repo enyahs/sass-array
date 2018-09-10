@@ -1,0 +1,129 @@
+@import 'dist/functions/array_merge_recursive';
+
+/**
+ * Test array_merge_recursive()
+ */
+@include test-module('array_merge_recursive function') 
+{
+
+    // Test Array
+    $test_array: (
+        test1: (test: value, test2: value2, test3: value3),
+        test2: (test: value, test2: value2, test3: value3)
+    );
+
+    // Test Array
+    $test_array2: (
+        test1: (test: value, test2: value2, test3: value3),
+        test2: (test: value5, test4: value2, test3: value100)
+    );
+
+    // Test Array
+    $test_array3: (
+        test1: (test: value, test2: value2, test3: value3),
+        test2: (shayne: shayne),
+        test5: (test: change, test4: value2)
+    );
+
+    @include test('test_array_merge_recursive_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge_recursive(
+                $test_array, 
+                $test_array2
+            )),
+
+            // Expected Result
+            inspect(
+                (test1: (test: value, test2: value2, test3: value3), test2: (test: value5, test2: value2, test3: value100, test4: value2))
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge_recursive(
+                $test_array, 
+                $test_array3
+            )),
+
+            // Expected Result
+            inspect(
+                (test1: (test: value, test2: value2, test3: value3), test2: (test: value, test2: value2, test3: value3, shayne: shayne), test5: (test: change, test4: value2))
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge_recursive(
+                $test_array2, 
+                $test_array
+            )),
+
+            // Expected Result
+            inspect(
+                (test1: (test: value, test2: value2, test3: value3), test2: (test: value, test4: value2, test3: value3, test2: value2))
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge_recursive(
+                $test_array2, 
+                $test_array3
+            )),
+
+            // Expected Result
+            inspect(
+                (test1: (test: value, test2: value2, test3: value3), test2: (test: value5, test4: value2, test3: value100, shayne: shayne), test5: (test: change, test4: value2))
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge_recursive(
+                $test_array3, 
+                $test_array
+            )),
+
+            // Expected Result
+            inspect(
+                (test1: (test: value, test2: value2, test3: value3), test2: (shayne: shayne, test: value, test2: value2, test3: value3), test5: (test: change, test4: value2))
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge_recursive(
+                $test_array3, 
+                $test_array2
+            )),
+            
+            // Expected Result
+            inspect(
+                (test1: (test: value, test2: value2, test3: value3), test2: (shayne: shayne, test: value5, test4: value2, test3: value100), test5: (test: change, test4: value2))
+            )
+
+        );
+
+    }
+
+}

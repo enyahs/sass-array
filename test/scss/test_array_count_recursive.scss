@@ -1,0 +1,58 @@
+@import 'dist/functions/array_count_recursive';
+
+/**
+ * Test array_count_recursive()
+ */
+@include test-module('array_count_recursive function') 
+{
+    
+    // Test Array
+    $test_array: (
+        0: (
+            10,
+            20,
+            30
+        ),
+        1: 2,
+        2: (
+            0: 1,
+            1: 'test',
+            2: (
+                test: hello
+            )
+        )
+    );
+
+    @include test('test_array_count_recursive_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_count_recursive($test_array), 
+
+            // Expected Result
+            10
+
+        );
+
+    }
+
+    @include test('test_array_count_recursive_return_value_is_a_number')
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            if(type-of(array_count_recursive($test_array)) == number, true, false), 
+
+            // Expected Result
+            true
+
+        );
+
+    }
+
+}

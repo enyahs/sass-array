@@ -1,0 +1,90 @@
+@import 'dist/functions/array_count';
+
+/**
+ * Test array_count()
+ */
+@include test-module('array_count function') 
+{
+
+    // Test Array
+    $test_array: (
+        2,
+        4,
+        8,
+        16,
+        32
+    );
+
+    // Test Array
+    $test_array2: (
+        apple,
+        banana,
+        orange
+    );
+
+    // Test Array
+    $test_array3: (
+        test: 'value',
+        test2: 'value2',
+        test3: 'value3',
+        test4: 'value4',
+        test5: 'value5'
+    );
+
+    // Test array_count() returns the expected result
+    @include test('test_array_count_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_count($test_array), 
+
+            // Expected Result
+            5
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_count($test_array2), 
+
+            // Expected Result
+            3
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_count($test_array3), 
+
+            // Expected Result
+            5
+
+        );
+
+    }
+
+    // Test array_count() returns a number
+    @include test('test_array_count_return_value_is_a_number')
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            if(type-of(array_count($test_array)) == number, true, false),
+
+            // Expected Result
+            true
+            
+        );
+
+    }
+
+}

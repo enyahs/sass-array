@@ -1,0 +1,180 @@
+@import 'dist/utilities/explode';
+
+/**
+ * Test explode()
+ */
+@include test-module('explode function') 
+{
+
+    // Test String
+    $test_string: 'sass.array';
+
+    // Test String
+    $test_string2: 'github.com';
+
+    // Test String
+    $test_string3: '0.1.2.3.4.5';
+
+    // Test String
+    $test_string4: 'item1.item2.item3.item4';
+
+    // Test String
+    $test_string5: 'split string by space';
+
+    // Test String
+    $test_string6: 'split-string-by-dash';
+
+    // Test String
+    $test_string7: 'split_string_by_underscore';
+
+    // Test String
+    $test_string8: 'split/string/by/slash';
+
+    // Test String
+    $test_string9: 'split+string+by+plus';
+
+    // Test explode() returns the expected result
+    @include test('test_explode_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('.', $test_string)
+            ), 
+            
+            // Expected Result
+            inspect(
+                (0: "sass", 1: "array")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('.', $test_string2)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "github", 1: "com")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('.', $test_string3)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5")
+            )
+
+        );
+
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('.', $test_string4)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "item1", 1: "item2", 2: "item3", 3: "item4")
+            )
+
+        );
+
+    }
+
+    // Test explode() works with other types of common delimeters
+    @include test('test_explode_alternate_delimeter') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode(' ', $test_string5)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "split", 1: "string", 2: "by", 3: "space")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('-', $test_string6)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "split", 1: "string", 2: "by", 3: "dash")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('_', $test_string7)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "split", 1: "string", 2: "by", 3: "underscore")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('/', $test_string8)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "split", 1: "string", 2: "by", 3: "slash")
+            )
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(
+                explode('+', $test_string9)
+            ), 
+
+            // Expected Result
+            inspect(
+                (0: "split", 1: "string", 2: "by", 3: "plus")
+            )
+        );
+
+    }
+
+}

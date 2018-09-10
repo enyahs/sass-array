@@ -1,0 +1,69 @@
+@import 'array';
+
+/**
+ * Set up function for array_count().
+ * 
+ * @param Map or List $Array
+ * @return array_count_handle
+ */
+@function array_count(
+    $array
+)
+{
+
+    $arg_array_type: type-of($array);
+    $valid_array_type: ($arg_array_type == map or $arg_array_type == list);
+
+    @if(
+        (
+            $valid_array_type
+        ) 
+    )
+    {
+        
+        @return array_count_handle(
+            array($array)
+        );
+
+    }
+    @else
+    {
+
+        $errors: '';
+
+        $errors: $errors + if(
+            $valid_array_type == false, 
+            "\a\aTypeError array_count(): \a\a parameter: 1 \a expected: map \a given: " + $arg_array_type + "\a\a",
+            ""
+        );
+
+        @error $errors;
+
+    }
+
+    @return false;
+
+}
+
+/**
+ * Counts all items in an array.
+ * 
+ * @param Array $array
+ */
+ @function array_count_handle(
+    $array
+)
+{
+
+    $total: 0;
+
+    @each $k, $v in $array
+    {
+
+        $total: $total + 1;
+
+    }
+
+    @return $total;
+
+}

@@ -1,0 +1,138 @@
+@import 'dist/functions/array_get';
+
+/**
+ * Test array_get()
+ */
+@include test-module('array_get function') 
+{
+
+    // Test Array
+    $test_array: (
+        0: (
+            10,
+            20,
+            30
+        ),
+        1: 2,
+        2: (
+            0: 1,
+            1: 'test',
+            2: (
+                test: hello,
+                testing: (1000, 2000, 3000)
+            )
+        )
+    );
+
+    // Test array_get() returns the expected result
+    @include test('test_array_get_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '1'), 
+
+            // Expected Result
+            2
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '0.2'),
+
+            // Expected Result
+            30
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '2.2.test'),
+
+            // Expected Result
+            hello
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '2.2.testing.1'),
+            
+            // Expected Result
+            2000
+
+        );
+
+    }
+
+    // Test array_get() returns null on invalid key
+    @include test('test_array_get_returns_null_on_invalid_array_key') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, ''), 
+
+            // Expected Result
+            null
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '...'),
+
+            // Expected Result
+            null
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '0.22'), 
+
+            // Expected Result
+            null
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '2.0.fake'),
+
+            // Expected Result
+            null
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            array_get($test_array, '2.2.test.not.real'),
+            
+            // Expected Result
+            null
+        
+        );
+
+    }
+
+}

@@ -1,0 +1,98 @@
+@import 'array';
+@import 'array_count';
+
+@import '../utilities/explode';
+
+/**
+ * Set up function for array_get().
+ * 
+ * @param Map or List $array
+ * @param String $path
+ * @return array_get_handle
+ */
+@function array_get(
+    $array,
+    $path
+) 
+{
+
+    $arg_array_type: type-of($array);
+    $valid_array_type: ($arg_array_type == map or $arg_array_type == list);
+
+    $arg_path_type: type-of($path);
+    $valid_path_type: ($arg_path_type == string);
+
+    @if(
+        $valid_path_type and 
+        $valid_array_type
+    )
+    {
+
+        @return array_get_handle(
+            array($array),
+            explode('.', $path)
+        );
+
+    }
+    @else
+    {
+
+        $errors: '';
+
+        $errors: $errors + if(
+            $valid_array_type == false, 
+            "\a\aTypeError array_get(): \a\a parameter: 1 \a expected: map \a given: " + $arg_array_type + "\a\a",
+            ""
+        );
+
+        $errors: $errors + if(
+            $valid_path_type == false, 
+            "\a\aTypeError array_get(): \a\a parameter: 2 \a expected: string \a given: " + $arg_path_type + "\a\a",
+            ""
+        );
+        
+        @error $errors;
+
+    }
+
+    @return false;
+    
+}
+
+/**
+ * Get an item inside an array.
+ * 
+ * @param Array $array
+ * @param String $path
+ * @return Mixed - The value located at the endpoint of the path given.
+ */
+ @function array_get_handle(
+    $array, 
+    $path
+)
+{
+
+    @each $k, $v in $path
+    {
+
+        @if(type-of($array) == map)
+        {
+
+            $array: map-get(
+                $array,
+                $v
+            );
+
+        }
+        @else
+        {
+
+            @return null;
+
+        }
+
+    }
+
+    @return if(array_count($path) > 0, $array, null);
+
+}

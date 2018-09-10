@@ -1,0 +1,99 @@
+@import 'array';
+
+/**
+ * Set up function for array_merge_recursive().
+ * 
+ * @param Map or List $array
+ * @param Map or List $array2
+ * @return array_merge_recursive_handle
+ */
+@function array_merge_recursive(
+    $array,
+    $array2
+)
+{
+
+    $arg_array_type: type-of($array);
+    $valid_array_type: ($arg_array_type == map or $arg_array_type == list);
+
+    $arg_array2_type: type-of($array2);
+    $valid_array2_type: ($arg_array2_type == map or $arg_array2_type == list);
+
+    @if(
+        (
+            $valid_array_type and
+            $valid_array2_type
+        ) 
+    )
+    {
+        
+        @return array_merge_recursive_handle(
+            array($array),
+            array($array2)
+        );
+
+    }
+    @else
+    {
+
+        $errors: '';
+
+        $errors: $errors + if(
+            $valid_array_type == false, 
+            "\a\aTypeError array_merge_recursive(): \a\a parameter: 1 \a expected: map or list \a given: " + $arg_array_type + "\a\a",
+            ""
+        );
+
+        $errors: $errors + if(
+            $valid_array2_type == false, 
+            "\a\aTypeError array_merge_recursive(): \a\a parameter: 2 \a expected: map or list \a given: " + $arg_array2_type + "\a\a",
+            ""
+        );
+
+        @error $errors;
+
+    }
+
+    @return false;
+
+}
+
+/**
+ * Merge two arrays recursive.
+ * 
+ * @param Array $array
+ * @param Array $array2
+ * @return Array - An array of two arrays merged recursively.
+ */
+ @function array_merge_recursive_handle(
+    $array,
+    $array2
+)
+{
+
+    @each $k, $v in $array2
+    {
+
+        $item: map-get($array, $k); 
+
+        @if(
+            (
+                $item != null and type-of($v) == map
+            )
+        )
+        {
+
+            $array: map-merge($array, ($k: array_merge_handle($item, $v)));
+
+        }
+        @else
+        {
+
+            $array: map-merge($array, ($k: $v));
+
+        }
+
+    }
+    @return $array;
+
+}

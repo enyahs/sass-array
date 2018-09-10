@@ -1,0 +1,29 @@
+{
+  "name": "sass-array",
+  "version": "0.0.01",
+  "description": "An extention to sass allowing many useful array functions.",
+  "keywords": [
+    "sass",
+    "sass-array",
+    "sass-map",
+    "scss"
+  ],
+  "author": "ENYAHS",
+  "license": "MIT",
+  "main": "dist/sass-array.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enyahs/sass-array.git"
+  },
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/enyahs/sass-array/issues"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "node-sass": "^4.9.3",
+    "sass-true": "^4.0.0"
+  }
+}

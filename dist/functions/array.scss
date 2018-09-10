@@ -1,0 +1,79 @@
+/**
+ * Transforms Lists and Maps into an Array.
+ * 
+ * @param Map or List $array
+ * @return Array (map)
+ */
+@function array($array)
+{
+
+    $map: ();
+
+    @if(type-of($array) == list)
+    {
+
+        $list-map: ();
+        $total: 0;
+
+        @each $v in $array
+        {
+
+            @if(type-of($v) == list or type-of($v) == map)
+            {
+
+
+                $list-map: map-merge($list-map, (
+                    inspect($total): array($v)
+                ));
+
+            }
+            @else
+            {
+
+                $list-map: map-merge($list-map, (
+                    inspect($total): $v
+                ));
+
+            }
+
+            $total: $total + 1;
+
+        }
+
+        $map: map-merge($map, $list-map);
+
+    }
+    @else if(type-of($array) == map)
+    {
+
+        $list-map: ();
+
+        @each $k, $v in $array
+        {
+
+            @if(type-of($v) == list or type-of($v) == map)
+            {
+
+                $list-map: map-merge($list-map, (
+                    inspect($k): array($v)
+                ));
+
+            }
+            @else
+            {
+
+                $list-map: map-merge($list-map, (
+                    inspect($k): $v
+                ));
+
+            }
+
+        }
+
+        $map: map-merge($map, $list-map);
+
+    }
+
+    @return $map;
+
+}
