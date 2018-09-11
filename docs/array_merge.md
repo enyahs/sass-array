@@ -27,8 +27,8 @@ $map:(
 );
 
 $list:
-(
-	1,
+(  
+    1,
     2,
     5
 );
@@ -38,7 +38,7 @@ $result: array_merge($map, $list);
 Output:
 ```scss
 (
-	color: red,
+    color: red,
     0: 1,
     1: 2,
     2: 5

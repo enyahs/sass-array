@@ -3,7 +3,7 @@ A library that takes the hassle away from dealing with both maps and lists and i
 
 #### __Array Functions__
 
-- array_get — Get an item inside an array.
+- [array_get](docs/array_merge) — Get an item inside an array.
 - array_merge — Merge two arrays.
 - array_merge_recursive — Merge two arrays recursively.
 - array_count — Count all elements in an array.
