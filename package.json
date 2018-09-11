@@ -1,7 +1,7 @@
 {
   "name": "sass-array",
-  "version": "0.0.01",
-  "description": "An extention to sass allowing many useful array functions.",
+  "version": "0.0.1",
+  "description": "A library that takes the hassle away from dealing with both maps and lists and includes extra functionality to make working with maps more fun.",
   "keywords": [
     "sass",
     "sass-array",

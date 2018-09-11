@@ -23,7 +23,7 @@ An array containing the result of two merged arrays.
 Example #1 array_merge()
 ```scss
 $map:(
-	color: red
+    color: red
 );
 
 $list:
