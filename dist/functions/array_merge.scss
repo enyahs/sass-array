@@ -28,8 +28,8 @@
     {
         
         @return array_merge_handle(
-            array($array),
-            array($array2)
+            $array,
+            $array2
         );
 
     }
@@ -71,6 +71,7 @@
 )
 {
 
-    @return map-merge($array, $array2);
+    @if(type-of($array) == list and type-of($array2) == list){ @return array(join($array, $array2, comma)); }
+    @else{ @return array(map-merge(array($array), array($array2))); }
 
 }

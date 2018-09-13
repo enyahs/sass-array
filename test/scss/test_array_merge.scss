@@ -33,6 +33,20 @@
         7: "Sharla"
     );
 
+    // Test Array
+    $test_array5: (
+        1,
+        2,
+        3
+    );
+
+    // Test Array
+    $test_array6: (
+        4,
+        5,
+        6
+    );
+
     // Test array_merge() returns the expected result
     @include test('test_array_merge_returns_correct_value') 
     {
@@ -226,6 +240,38 @@
             // Expected Result
             inspect(
                 (4: "Julius", 7: "Sharla", 3: "Tobias", 5: "Angelo", 6: "Kasey")
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array5,
+                $test_array6
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6)
+            )
+
+        );      
+        
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_merge(
+                $test_array6,
+                $test_array5
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: 4, 1: 5, 2: 6, 3: 1, 4: 2, 5: 3)
             )
 
         );
