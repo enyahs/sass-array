@@ -62,7 +62,7 @@
 
             // Expected Result
             inspect(
-                (0: "shayne", 1: "peyton", 2: "john", 3: "bill")
+                (0: "shayne", 1: "peyton", 2: "rose", 3: "john", 4: "bill")
             )
 
         );
@@ -94,7 +94,7 @@
 
             // Expected Result
             inspect(
-                (0: "shayne", 1: "peyton", 2: "rose", 4: "Carolin", 7: "Sharla")
+                (0: "shayne", 1: "peyton", 2: "rose", 3: "Carolin", 4: "Sharla")
             )
 
         );
@@ -110,7 +110,7 @@
 
             // Expected Result
             inspect(
-                (2: "rose", 3: "bill", 0: "shayne", 1: "peyton")
+                (0: "john", 1: "bill", 2: "shayne", 3: "peyton", 4: "rose")
             )
 
         );
@@ -126,7 +126,7 @@
 
             // Expected Result
             inspect(
-                (2: "john", 3: "Tobias", 4: "Julius", 5: "Angelo", 6: "Kasey")
+                (0: "john", 1: "bill", 2: "Tobias", 3: "Julius", 4: "Angelo", 5: "Kasey")
             )
 
         );
@@ -143,7 +143,7 @@
 
             // Expected Result
             inspect(
-                (2: "john", 3: "bill", 4: "Carolin", 7: "Sharla")
+                (0: "john", 1: "bill", 2: "Carolin", 3: "Sharla")
             )
 
         );
@@ -159,7 +159,7 @@
 
             // Expected Result
             inspect(
-                (3: "Tobias", 4: "Julius", 5: "Angelo", 6: "Kasey", 0: "shayne", 1: "peyton", 2: "rose")
+                (0: "Tobias", 1: "Julius", 2: "Angelo", 3: "Kasey", 4: "shayne", 5: "peyton", 6: "rose")
             )
 
         );
@@ -175,7 +175,7 @@
 
             // Expected Result
             inspect(
-                (3: "bill", 4: "Julius", 5: "Angelo", 6: "Kasey", 2: "john")
+                (0: "Tobias", 1: "Julius", 2: "Angelo", 3: "Kasey", 4: "john", 5: "bill")
             )
 
         );
@@ -191,7 +191,7 @@
 
             // Expected Result
             inspect(
-                (3: "Tobias", 4: "Carolin", 5: "Angelo", 6: "Kasey", 7: "Sharla")
+                (0: "Tobias", 1: "Julius", 2: "Angelo", 3: "Kasey", 4: "Carolin", 5: "Sharla")
             )
 
         );
@@ -207,7 +207,7 @@
 
             // Expected Result
             inspect(
-                (4: "Carolin", 7: "Sharla", 0: "shayne", 1: "peyton", 2: "rose")
+                (0: "Carolin", 1: "Sharla", 2: "shayne", 3: "peyton", 4: "rose")
             )
 
         );
@@ -223,7 +223,7 @@
 
             // Expected Result
             inspect(
-                (4: "Carolin", 7: "Sharla", 2: "john", 3: "bill")
+                (0: "Carolin", 1: "Sharla", 2: "john", 3: "bill")
             )
 
         );
@@ -239,7 +239,7 @@
 
             // Expected Result
             inspect(
-                (4: "Julius", 7: "Sharla", 3: "Tobias", 5: "Angelo", 6: "Kasey")
+                (0: "Carolin", 1: "Sharla", 2: "Tobias", 3: "Julius", 4: "Angelo", 5: "Kasey")
             )
 
         );

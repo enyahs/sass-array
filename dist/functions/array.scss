@@ -23,7 +23,7 @@
 
 
                 $list-map: map-merge($list-map, (
-                    inspect($total): array($v)
+                    #{$total}: array($v)
                 ));
 
             }
@@ -31,7 +31,7 @@
             {
 
                 $list-map: map-merge($list-map, (
-                    inspect($total): $v
+                    #{$total}: $v
                 ));
 
             }

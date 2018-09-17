@@ -41,7 +41,7 @@
 
         $errors: $errors + if(
             $valid_array_type == false, 
-            "\a\aTypeError array_get(): \a\a parameter: 1 \a expected: map \a given: " + $arg_array_type + "\a\a",
+            "\a\aTypeError array_get(): \a\a parameter: 1 \a expected: map or list \a given: " + $arg_array_type + "\a\a",
             ""
         );
 
