@@ -1,5 +1,5 @@
 # Sass Array
-A library that takes the hassle away from dealing with both maps and lists and includes extra functionality to make working with maps more fun.
+A library that takes the hassle away from dealing with both maps and lists with extra functionality to use in your sass code.
 
 #### __Array Functions__
 

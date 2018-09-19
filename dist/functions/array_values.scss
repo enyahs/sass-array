@@ -54,6 +54,8 @@
 )
 {
 
-    @return array(map-values($array));
+    @return array(
+        map-values($array)
+    );
 
 }
