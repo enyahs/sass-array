@@ -44,5 +44,33 @@ Output:
     2: 5
 )
 ```
+\
+Example #2 array_merge()
+```scss
+$list:
+(
+    1,
+    2,
+    3
+);
 
+$list2:
+(  
+    4,
+    5,
+    6
+);
 
+$result: array_merge($list, $list2);
+```
+Output:
+```scss
+(
+    0: 1,
+    1: 2,
+    2: 3,
+    3: 4,
+    4: 5,
+    5: 6
+)
+```

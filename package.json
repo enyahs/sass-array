@@ -9,9 +9,6 @@
     "sass-map",
     "scss"
   ],
-  "files": [
-    "./dist"
-  ],
   "author": "ENYAHS",
   "license": "MIT",
   "main": "dist/sass-array.scss",
