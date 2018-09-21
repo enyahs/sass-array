@@ -1,22 +1,22 @@
 # array_merge
 
-array_merge — Merge two datasets.
+array_merge — Merge two arrays.
 
 #### __Description__
 
 ```scss
-array_merge(mixed $array_or_list, mixed $array_or_list_2) : array
+array_merge(mixed $map_or_list, mixed $map_or_list_2) : array
 ```
 
 #### __Parameters__
-array_or_list
-- Initial array or list to merge.
+map_or_list
+- Initial (map or list) to merge.
   
-array_or_list_2
-- Array or list to merge into first parameter.
+map_or_list_2
+- (Map or list) to merge into first parameter.
 
 #### __Return Values__
-An array containing the result of two merged arrays.
+An array containing the result of two arrays merged.
 
 
 #### __Examples__
