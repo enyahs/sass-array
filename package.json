@@ -1,6 +1,6 @@
 {
   "name": "sass-array",
-  "version": "0.0.11",
+  "version": "0.0.2",
   "description": "A library that takes the hassle away from dealing with both maps and lists with extra functionality to use in your sass code.",
   "homepage": "https://github.com/enyahs/sass-array",
   "keywords": [

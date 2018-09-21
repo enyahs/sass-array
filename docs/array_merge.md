@@ -13,7 +13,7 @@ map_or_list
 - Initial (map or list) to merge.
   
 map_or_list_2
-- (Map or list) to merge into first parameter.
+- (Map or list) to merge into initial (map or list).
 
 #### __Return Values__
 An array containing the result of two arrays merged.
