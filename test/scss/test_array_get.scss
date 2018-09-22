@@ -78,60 +78,60 @@
     @include test('test_array_get_returns_null_on_invalid_array_key') 
     {
 
-        // // Validate Equal
-        // @include assert-equal(
+        // Validate Equal
+        @include assert-equal(
 
-        //     // Result
-        //     array_get($test_array, ''), 
+            // Result
+            array_get($test_array, ''), 
 
-        //     // Expected Result
-        //     null
+            // Expected Result
+            null
 
-        // );
+        );
 
-        // // Validate Equal
-        // @include assert-equal(
+        // Validate Equal
+        @include assert-equal(
 
-        //     // Result
-        //     array_get($test_array, '...'),
+            // Result
+            array_get($test_array, '...'),
 
-        //     // Expected Result
-        //     null
+            // Expected Result
+            null
 
-        // );
+        );
 
-        // // Validate Equal
-        // @include assert-equal(
+        // Validate Equal
+        @include assert-equal(
 
-        //     // Result
-        //     array_get($test_array, '0.22'), 
+            // Result
+            array_get($test_array, '0.22'), 
 
-        //     // Expected Result
-        //     null
+            // Expected Result
+            null
 
-        // );
+        );
 
-        // // Validate Equal
-        // @include assert-equal(
+        // Validate Equal
+        @include assert-equal(
 
-        //     // Result
-        //     array_get($test_array, '2.0.fake'),
+            // Result
+            array_get($test_array, '2.0.fake'),
 
-        //     // Expected Result
-        //     null
+            // Expected Result
+            null
 
-        // );
+        );
 
-        // // Validate Equal
-        // @include assert-equal(
+        // Validate Equal
+        @include assert-equal(
 
-        //     // Result
-        //     array_get($test_array, '2.2.test.not.real'),
+            // Result
+            array_get($test_array, '2.2.test.not.real'),
             
-        //     // Expected Result
-        //     null
+            // Expected Result
+            null
         
-        // );
+        );
 
     }
 
