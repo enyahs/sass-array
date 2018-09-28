@@ -22,6 +22,21 @@ An indexed array containing the array values.
 #### __Examples__
 Example #1 array_get()
 ```scss
+$list:(
+    1px,
+    2px,
+    5px
+);
+
+$result: array_get($list, '0');
+```
+Output:
+```scss
+blue
+```
+\
+Example #2 array_get()
+```scss
 $map:(
     colors: (primary: blue, secondary: red)
 );
@@ -31,4 +46,18 @@ $result: array_get($map, 'colors.primary');
 Output:
 ```scss
 blue
+```
+\
+Example #3 array_get()
+```scss
+$map:(
+    small: (1px, 3px, 5px),
+    large: (10px, 30px 50px)
+);
+
+$result: array_get($map, 'small.1');
+```
+Output:
+```scss
+3px
 ```
