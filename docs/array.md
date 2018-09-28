@@ -27,3 +27,36 @@ $list:(
 
 $result: array($list);
 ```
+Output:
+```scss
+(
+    0: 10,
+    1: 5,
+    2: 0
+)
+```
+\
+Example #2 array()
+```scss
+$map:(
+    list1: (1, 2, 3),
+    list2: (4, 5, 6)
+);
+
+$result: array($map);
+```
+Output:
+```scss
+(
+    list1: (
+        0: 1,
+        1: 2,
+        2: 3
+    ),
+    list2: (
+        0: 4,
+        1: 5,
+        2: 6
+    )
+)
+```
