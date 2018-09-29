@@ -1,0 +1,89 @@
+@import 'dist/functions/array';
+
+/**
+ * Test array()
+ */
+@include test-module('array function') 
+{
+
+    // Test List
+    $test_list: (
+        a,
+        b,
+        c
+    );
+
+    // Test List
+    $test_list2: (
+        1px,
+        2px,
+        3px
+    );
+
+    // Test List
+    $test_list3: (
+        10,
+        20,
+        30
+    );
+
+    
+    // Test array() returns the expected result
+    @include test('test_array_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array(
+                $test_list
+            )), 
+
+            // Expected Result
+            inspect((
+                0: a,
+                1: b,
+                2: c
+            ))
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array(
+                $test_list2
+            )), 
+
+            // Expected Result
+            inspect((
+                0: 1px,
+                1: 2px,
+                2: 3px
+            ))
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array(
+                $test_list3
+            )), 
+
+            // Expected Result
+            inspect((
+                0: 10,
+                1: 20,
+                2: 30
+            ))
+
+        );
+
+    }
+
+
+}
