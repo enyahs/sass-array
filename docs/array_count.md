@@ -32,3 +32,18 @@ Output:
 ```scss
 4
 ```
+\
+Example #1 array_count()
+```scss
+$map:(
+    small: 1rem,
+    medium: 2rem,
+    large: 3rem
+);
+
+$result: array_count($list);
+```
+Output:
+```scss
+3
+```
