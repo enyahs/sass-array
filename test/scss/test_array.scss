@@ -27,6 +27,12 @@
         30
     );
 
+    // Test Map
+    $test_map: (
+        fontsizes: (1rem, 1.5rem, 2rem, 3rem),
+        fontweights: (light, normal, bold),
+    );
+
     
     // Test array() returns the expected result
     @include test('test_array_returns_correct_value') 
@@ -79,6 +85,31 @@
                 0: 10,
                 1: 20,
                 2: 30
+            ))
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array(
+                $test_map
+            )), 
+
+            // Expected Result
+            inspect((
+                fontsizes: (
+                    0: 1rem,
+                    1: 1.5rem,
+                    2: 2rem,
+                    3: 3rem
+                ),
+                fontweights: (
+                    0: light,
+                    1: normal,
+                    2: bold
+                )
             ))
 
         );
