@@ -41,7 +41,7 @@ $map:(
     large: 3rem
 );
 
-$result: array_count($list);
+$result: array_count($map);
 ```
 Output:
 ```scss
