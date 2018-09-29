@@ -22,7 +22,7 @@ An array containing the result of two arrays merged recursively.
 #### __Examples__
 Example #1 array_merge()
 ```scss
-$map2:
+$map:
 (  
     test: (circle: 1, square: 2, triangle: 3),
     test2: numbers,
@@ -45,5 +45,47 @@ Output:
     test2: colors,
     test3: names,
     test4: shapes
+);
+```
+\
+Example #2 array_merge()
+```scss
+$list:
+(  
+    (1, 2, 3),
+    (4, 5, 6)
+);
+
+$list2:
+(  
+    (7, 8, 9),
+    (10, 11, 12)
+);
+
+$result: array_merge($list, $list2);
+```
+Output:
+```scss
+(  
+    0: (
+        0: 1, 
+        1: 2, 
+        2: 3
+    ),
+    1: (
+        0: 4, 
+        1: 5, 
+        2: 6
+    ),
+    2: (
+        0: 7, 
+        1: 8, 
+        2: 9
+    ),
+    3: (
+        0: 10, 
+        1: 11, 
+        2: 12
+    )
 );
 ```
