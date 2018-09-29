@@ -74,3 +74,29 @@ Output:
     5: 6
 )
 ```
+\
+Example #3 array_merge()
+```scss
+$map:
+(
+    small: 1rem,
+    medium: 1.5rem,
+    large: 2rem
+);
+
+$map2:
+(  
+    medium: 2rem,
+    large: 3rem
+);
+
+$result: array_merge($map, $map2);
+```
+Output:
+```scss
+(
+    small: 1rem,
+    medium: 2rem,
+    large: 3rem
+)
+```
