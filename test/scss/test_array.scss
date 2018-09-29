@@ -65,11 +65,9 @@
             )), 
 
             // Expected Result
-            inspect((
-                0: 1px,
-                1: 2px,
-                2: 3px
-            ))
+            inspect(
+                (0: 1px, 1: 2px, 2: 3px)
+            )
 
         );
 
@@ -82,11 +80,9 @@
             )), 
 
             // Expected Result
-            inspect((
-                0: 10,
-                1: 20,
-                2: 30
-            ))
+            inspect(
+                (0: 10, 1: 20, 2: 30)
+            )
 
         );
 
@@ -99,23 +95,9 @@
             )), 
 
             // Expected Result
-            inspect((
-                fontsizes: (
-                    0: 1rem,
-                    1: 1.5rem,
-                    2: 2rem,
-                    3: 3rem
-                ),
-                fontweights: (
-                    0: light,
-                    1: normal,
-                    2: bold
-                ),
-                fontstyles: (
-                    0: normal,
-                    1: italic
-                )
-            ))
+            inspect(
+                (fontsizes: (0: 1rem, 1: 1.5rem, 2: 2rem, 3: 3rem), fontweights: (0: light, 1: normal, 2: bold), fontstyles: (0: normal, 1: italic))
+            )
 
         );
 
