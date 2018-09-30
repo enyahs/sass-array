@@ -1,0 +1,44 @@
+@import 'array';
+
+/**
+ * Set up function for array_get().
+ * 
+ * @param Map or List $array
+ * @return array_keys_handle
+ */
+@function array_keys(
+    $array
+) 
+{
+
+    $arg_array_type: type-of($array);
+    $valid_array_type: ($arg_array_type == map or $arg_array_type == list);
+
+    @if(
+        $valid_array_type
+    )
+    {
+
+        @return array_keys_handle(
+            array($array)
+        );
+
+    }
+    @else
+    {
+
+        $errors: '';
+
+        $errors: $errors + if(
+            $valid_array_type == false, 
+            "\a\aTypeError array_keys(): \a\a parameter: 1 \a expected: map or list \a given: " + $arg_array_type + "\a\a",
+            ""
+        );
+        
+        @error $errors;
+
+    }
+
+    @return false;
+    
+}
