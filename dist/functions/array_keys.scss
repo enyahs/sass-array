@@ -42,3 +42,20 @@
     @return false;
     
 }
+
+/**
+ * Returns an array of keys from given array.
+ * 
+ * @param Array $array
+ * @return Array - An array of all keys in a given array indexed numerically.
+ */
+ @function array_keys_handle(
+    $array
+)
+{
+
+    @return array(
+        map-keys($array)
+    );
+
+}
