@@ -28,8 +28,8 @@
     "url": "https://github.com/enyahs/sass-array/issues"
   },
   "devDependencies": {
-    "mocha": "^2.5.3",
-    "node-sass": "^4.9.3",
+    "mocha": "^5.2.0",
+    "node-sass": "^4.10.0",
     "sass-true": "^4.0.0"
   }
 }
