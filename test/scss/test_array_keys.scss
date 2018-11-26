@@ -13,6 +13,12 @@
         y,
         z
     );
+
+    // Test Array
+    $test_array2: (
+        shapes: (square, circle, triangle),
+        colors: (red, blue, green)
+    );
     
     // Test array_keys() returns the expected result
     @include test('test_array_keys_returns_correct_value') 
@@ -29,6 +35,21 @@
             // Expected Result
             inspect(
                 (0: 0, 1: 1, 2: 2, 3: 3)
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_keys( 
+                $test_array2
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: shapes, 1: colors)
             )
 
         );
