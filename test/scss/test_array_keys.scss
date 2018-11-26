@@ -1,0 +1,39 @@
+@import 'dist/functions/array_keys';
+
+/**
+ * Test array_keys()
+ */
+@include test-module('array_keys function') 
+{
+
+    // Test Array
+    $test_array: (
+        w,
+        x,
+        y,
+        z
+    );
+    
+    // Test array_keys() returns the expected result
+    @include test('test_array_keys_returns_correct_value') 
+    {
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_keys( 
+                $test_array
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: 0, 1: 1, 2: 2, 3: 3)
+            )
+
+        );
+
+    }
+
+
+}
