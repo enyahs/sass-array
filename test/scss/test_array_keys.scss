@@ -8,6 +8,12 @@
 
     // Test Array
     $test_array: (
+        0: 100,
+        color:red
+    );
+
+    // Test Array
+    $test_array2: (
         w,
         x,
         y,
@@ -15,7 +21,7 @@
     );
 
     // Test Array
-    $test_array2: (
+    $test_array3: (
         shapes: (square, circle, triangle),
         colors: (red, blue, green)
     );
@@ -34,7 +40,7 @@
 
             // Expected Result
             inspect(
-                (0: 0, 1: 1, 2: 2, 3: 3)
+                (0: 0, 1: color)
             )
 
         );
@@ -45,6 +51,21 @@
             // Result
             inspect(array_keys( 
                 $test_array2
+            )), 
+
+            // Expected Result
+            inspect(
+                (0: 0, 1: 1, 2: 2, 3: 3)
+            )
+
+        );
+
+        // Validate Equal
+        @include assert-equal(
+
+            // Result
+            inspect(array_keys( 
+                $test_array3
             )), 
 
             // Expected Result
