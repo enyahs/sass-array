@@ -26,18 +26,18 @@ $test2:(4,5,6);
 $test3:(shape: circle, color: red);
 $test4:(people: (shayne: 21, john: 24));
 
-@debug(array_merge($test, $test2));
-// (0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6)
-
 @debug(array_count($test));
 // 3
+
+@debug(array_get($test4, 'people.shayne'));
+// 21
 
 @debug(array_keys($test3));
 // (0: shape, 1: color)
 
+@debug(array_merge($test, $test2));
+// (0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6)
+
 @debug(array_values($test3));
 // (0: circle, 1: red)
-
-@debug(array_get($test4, 'people.shayne'));
-// 21
 ```
