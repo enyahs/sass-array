@@ -1,7 +1,7 @@
 {
   "name": "sass-array",
   "version": "0.0.3",
-  "description": "A library that converts combinations of maps and lists to full associative array maps and provides extra functionality to make working with both lists and maps more simplified.",
+  "description": "A library that converts combinations of maps and lists to associative arrays and provides extra functionality to make working with both lists and maps more simplified.",
   "homepage": "https://github.com/enyahs/sass-array",
   "keywords": [
     "sass",
