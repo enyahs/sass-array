@@ -20,7 +20,7 @@ An array containing the result of two arrays merged recursively.
 
 
 #### __Examples__
-Example #1 array_merge()
+Example #1 array_merge_recursive()
 ```scss
 $map:
 (  
@@ -36,7 +36,7 @@ $map2:
     test4: shapes
 );
 
-$result: array_merge($map, $map2);
+$result: array_merge_recursive($map, $map2);
 ```
 Output:
 ```scss
@@ -48,7 +48,7 @@ Output:
 );
 ```
 \
-Example #2 array_merge()
+Example #2 array_merge_recursive()
 ```scss
 $list:
 (  
@@ -62,7 +62,7 @@ $list2:
     (10, 11, 12)
 );
 
-$result: array_merge($list, $list2);
+$result: array_merge_recursive($list, $list2);
 ```
 Output:
 ```scss
