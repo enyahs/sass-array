@@ -1,8 +1,8 @@
 # Sass Array
-A library that converts combinations of maps and lists to full associative array maps and provides extra functionality to make working with both lists and maps more simplified.
+A library that converts combinations of maps and lists to associative arrays and provides extra functionality to make working with both lists and maps more simplified.
 
 __Note:__
-All array functions in this package will use the array() function to convert combinations of lists and maps to associative array maps before the handle function is executed.
+All array functions in this package will use the array() function to convert combinations of lists and maps to associative arrays before the handle function is executed.
 
 #### __Array Functions__
 
