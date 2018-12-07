@@ -19,17 +19,30 @@ An indexed array containing the array keys.
 #### __Examples__
 Example #1 array_keys()
 ```scss
-$map:(
-    shape: square,
-    color: blue
+$list:(
+    go,
+    stop
 );
 
-$result: array_keys($map);
+$result: array_keys($list);
 ```
 Output:
 ```scss
 (
-    0: shape,
-    1: color
+    0: 0,
+    1: 1
 )
+```
+\
+Example #2 array_keys()
+```scss
+$map:(
+    colors: (primary: blue, secondary: red)
+);
+
+$result: array_get($map, 'colors.primary');
+```
+Output:
+```scss
+blue
 ```
