@@ -56,4 +56,15 @@
 )
 {
 
+    $reversed_array: ();
+
+    @each $k, $v in $array
+    {
+
+        $reversed_array: map-merge(($k: $v), $reversed_array);
+
+    }
+
+    @return $reversed_array;
+
 }

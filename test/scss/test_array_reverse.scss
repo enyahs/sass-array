@@ -1,0 +1,19 @@
+@import 'dist/functions/array_reverse';
+
+/**
+ * Test array_reverse()
+ */
+@include test-module('array_reverse function') 
+{
+    
+    // Test array_keys() returns the expected result
+    @include test('test_array_reverse_returns_correct_value') 
+    {
+
+        @debug array_reverse(
+            (test: good, test2: bad)
+        );
+
+    }
+
+}
