@@ -11,8 +11,15 @@
     {
 
         @debug array_reverse(
-            (test: good, test2: bad)
+            (test: good, test2: bad),
+            false
         );
+
+        @debug array_reverse(
+            (test: good, test2: bad),
+            true
+        );
+
 
     }
 
