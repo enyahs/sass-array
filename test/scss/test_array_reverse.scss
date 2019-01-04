@@ -6,20 +6,9 @@
 @include test-module('array_reverse function') 
 {
     
-    // Test array_keys() returns the expected result
+    // Test array_reverse() returns the expected result
     @include test('test_array_reverse_returns_correct_value') 
     {
-
-        @debug array_reverse(
-            (test: good, test2: bad),
-            false
-        );
-
-        @debug array_reverse(
-            (test: good, test2: bad),
-            true
-        );
-
 
     }
 

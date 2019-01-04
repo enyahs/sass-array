@@ -63,6 +63,7 @@
  * Returns an array in reverse order.
  * 
  * @param Array $array
+ * @param Boolean $preserve_keys
  * @return Array - An array in reverse order.
  */
  @function array_reverse_handle(
