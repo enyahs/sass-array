@@ -81,6 +81,6 @@
 
     }
 
-    @return if($preserve_keys, $reversed_array, array_values($reversed_array));
+    @return if($preserve_keys, $reversed_array, array_values_handle($reversed_array));
 
 }
